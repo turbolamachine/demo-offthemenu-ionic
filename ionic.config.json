@@ -1,0 +1,7 @@
+{
+  "name": "fromthemenu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
