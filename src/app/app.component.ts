@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
       // We retrieve all the categories to build the sidemenu
       let catSubscription = this.fetchCategories().subscribe(categories => {
         this.categories = categories;
-        console.log(this.categories);
       });
 
     });

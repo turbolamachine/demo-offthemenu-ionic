@@ -2,20 +2,17 @@
   <ion-split-pane contentId="main-content">
 
     <!-- SIDEMENU -->
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu color="dark" contentId="main-content">
       <ion-content>
 
-        <ion-list id="inbox-list">
+        <ion-list>
           <ion-menu-toggle auto-hide="true">
             <ion-item lines="none" routerDirection="root" [routerLink]="['/home']" detail="false">
               <ion-icon slot="start" md="home" ios="home"></ion-icon>
-              <ion-label>Accueil</ion-label>
+              <ion-label>Home</ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Menu</ion-list-header>
+          <ion-list-header><ion-label color="light">Order Online</ion-label></ion-list-header>
           <ion-menu-toggle auto-hide="true">
             <ion-item *ngFor="let category of categories" lines="none" routerDirection="root" [routerLink]="['/category-list', category.id]">
               <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>

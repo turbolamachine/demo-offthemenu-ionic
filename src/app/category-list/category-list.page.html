@@ -19,4 +19,36 @@
 
 <ion-content [fullscreen]="true">
 
+  <!-- SLIDESHOW -->
+  <ion-slides pager="false">
+    <ion-slide>
+      <ion-text>
+      <h1 *ngIf="category">{{ category.name }}</h1>
+      <br />
+      <h2 *ngIf="category">{{ category.description }}</h2>
+      </ion-text>
+    </ion-slide>
+  </ion-slides>
+  <!-- END Slideshow -->
+
+  <!-- PRODUCTS LIST -->
+  <ion-card  *ngFor="let item of products" class="ion-text-center ion-padding-top">
+    <ion-item lines="none">
+      <ion-button slot="start" size="medium" color="theme" class="price">${{ item.price }}</ion-button>
+    </ion-item>
+    <img [src]="item.image" />
+    <h4 color="dark">{{ item.name }}</h4>
+    <ion-item class="ion-padding-start ion-padding-end ion-text-center" lines="none">
+      <ion-text>
+        {{ item.description }}
+      </ion-text>
+    </ion-item>
+    <ion-item class="ion-text-center" lines="none">
+      <ion-label>
+        <ion-button fill="outline" color="dark">Order Now</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  <!-- END Products List -->
+
 </ion-content>

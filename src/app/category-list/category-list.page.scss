@@ -1,0 +1,27 @@
+ion-slides {
+  height: 50%;
+
+  h1 {
+    color: var(--ion-color-dark);
+  }
+
+  h2 {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    line-height: 30px !important;
+  }
+}
+
+ion-card {
+  h4 {
+    color: var(--ion-color-dark);
+  }
+
+  img {
+    width: 50%;
+  }
+}
+
+.price {
+  font-weight: 800;
+}
