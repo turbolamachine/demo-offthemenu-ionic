@@ -2,3 +2,18 @@ ion-slides {
   height: 100%;
   background:#f7b844;
 }
+
+ion-card {
+  h4 {
+    color: var(--ion-color-dark);
+  }
+
+  img {
+    width: 50%;
+  }
+
+}
+
+.price {
+  font-weight: 800;
+}

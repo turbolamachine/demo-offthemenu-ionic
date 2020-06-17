@@ -26,8 +26,31 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-h1, h2, h3, h4, h5 {
+h3, h4, h5 {
   font-weight: 600 !important;
+}
+
+h3 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+
+h2 {
+  font-size: 19px !important;
+  font-weight: 500 !important;
+  line-height: 30px !important;
+}
+
+h1 {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+}
+
+ion-text {
+  weight:400 !important;
+  color: #666666;
+  font-size: 15px;
+  line-height: 25px;
 }
 
 .round {

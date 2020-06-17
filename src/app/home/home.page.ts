@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EnvService } from '../services/env.service';
+// import config from '../../../ionic.config.json';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  private menu: any;
+  private pizzas: any;
+
+  constructor(private env: EnvService) { }
 
   ngOnInit() {
+    // this.menu = config.menu;
+    // this.pizzas = this.menu[1];
   }
 
 }
