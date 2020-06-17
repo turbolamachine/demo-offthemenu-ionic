@@ -4,34 +4,4 @@
     "capacitor": {}
   },
   "type": "angular",
-  "menu": [
-    {
-      "name": "Appetizers",
-      "description": "",
-      "items": [
-        {
-          "name": "Meatball Appetizers",
-          "description": "",
-          "price": 8.90,
-          "image": "",
-          "options": [],
-          "extras": []
-        }
-      ]
-    },
-    {
-      "name": "Pizzas",
-      "description": "",
-      "items": [
-        {
-          "name": "Pepperoni Pizza",
-          "description": "",
-          "price": 14,
-          "image": "https://i.goopics.net/ZoNxG.png",
-          "options": [],
-          "extras": []
-        }
-      ]
-    }
-  ]
 }

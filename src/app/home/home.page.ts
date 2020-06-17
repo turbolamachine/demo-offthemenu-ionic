@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EnvService } from '../services/env.service';
-// import config from '../../../ionic.config.json';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,14 @@ import { EnvService } from '../services/env.service';
 })
 export class HomePage implements OnInit {
 
-  private menu: any;
-  private pizzas: any;
+  private pizzas: any[] = [];
 
-  constructor(private env: EnvService) { }
+  constructor(public db: AngularFirestore, private env: EnvService) {
+     const promise = db.collection('categories/1rXia7CeevroJzUU4pxK/products').valueChanges().subscribe((resp) => {
+       console.log(resp);
+       this.pizzas = resp;
+     });
+  }
 
   ngOnInit() {
     // this.menu = config.menu;

@@ -51,8 +51,14 @@
   </ion-item>
   <!-- END Text Content -->
 
+  <ul>
+    <li *ngFor="let item of items | async">
+      {{ item.name }}
+    </li>
+  </ul>
+
   <!-- PRODUCTS LIST -->
-  <!-- <ion-card  *ngFor="let item of pizzas.items" class="ion-text-center ion-padding-top">
+  <ion-card  *ngFor="let item of pizzas" class="ion-text-center ion-padding-top">
     <ion-item lines="none">
       <ion-button slot="start" size="medium" color="theme" class="price">${{ item.price }}</ion-button>
     </ion-item>
@@ -60,7 +66,7 @@
     <h4 color="dark">{{ item.name }}</h4>
     <ion-item class="ion-padding-start ion-padding-end ion-text-center" lines="none">
       <ion-text>
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        {{ item.description }}
       </ion-text>
     </ion-item>
     <ion-item class="ion-text-center" lines="none">
@@ -68,7 +74,7 @@
         <ion-button fill="outline" color="dark">Order Now</ion-button>
       </ion-label>
     </ion-item>
-  </ion-card> -->
+  </ion-card>
   <!-- END Products List -->
 
 </ion-content>
