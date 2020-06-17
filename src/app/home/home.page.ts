@@ -13,15 +13,13 @@ export class HomePage implements OnInit {
   private pizzas: any[] = [];
 
   constructor(public db: AngularFirestore, private env: EnvService) {
-     const promise = db.collection('categories/1rXia7CeevroJzUU4pxK/products').valueChanges().subscribe((resp) => {
-       console.log(resp);
-       this.pizzas = resp;
-     });
+    // We retrieve products from specific category
+    const promise = db.collection('categories/1rXia7CeevroJzUU4pxK/products').valueChanges().subscribe((resp) => {
+      this.pizzas = resp;
+    });
   }
 
   ngOnInit() {
-    // this.menu = config.menu;
-    // this.pizzas = this.menu[1];
   }
 
 }

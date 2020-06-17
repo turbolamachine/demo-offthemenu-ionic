@@ -1,7 +1,5 @@
 {
-  "name": "offthemenu",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular",
+  "name": "New Ionic App",
+  "integrations": {},
+  "type": "angular"
 }
