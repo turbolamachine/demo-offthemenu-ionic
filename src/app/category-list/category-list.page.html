@@ -45,10 +45,18 @@
     </ion-item>
     <ion-item class="ion-text-center" lines="none">
       <ion-label>
-        <ion-button fill="outline" color="dark">Order Now</ion-button>
+        <ion-button (click)="clickOnOrderNow(item)" fill="outline" color="dark">Order Now</ion-button>
       </ion-label>
     </ion-item>
   </ion-card>
   <!-- END Products List -->
 
+  <!-- CART BUTTON -->
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button color="light">
+      <ion-icon name="basket-outline"></ion-icon>
+      <ion-badge [color]="order.cart.length == 0 ? 'dark' : 'success'">{{ order.cart.length }}</ion-badge>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- END Cart Button -->
 </ion-content>

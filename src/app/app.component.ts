@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Category } from 'src/app/models/category';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public db: AngularFirestore
+    public prodServ: ProductsService
   ) {
     this.initializeApp();
   }
@@ -31,7 +32,7 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
 
       // We retrieve all the categories to build the sidemenu
-      let catSubscription = this.fetchCategories().subscribe(categories => {
+      let subscription = this.prodServ.fetchAllCategories().subscribe(categories => {
         this.categories = categories;
       });
 
@@ -41,18 +42,5 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
 
-  }
-
-  /*
-  * Function fetching all the categories
-  */
-  fetchCategories(): Observable<Category[]> {
-    return this.db.collection('categories', ref => ref.orderBy('position')).snapshotChanges().pipe(map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data();
-        const id = a.payload.doc.id;
-        return { id, ...(data as {}) } as Category ;
-      });
-    }));
   }
 }
