@@ -12,7 +12,7 @@ import { Category } from 'src/app/models/category';
 export class CategoryListPage implements OnInit {
 
   private category: Category;
-  private products: Observable<Category>;
+  private products: any[];
 
   constructor(public db: AngularFirestore, private activatedRoute: ActivatedRoute) {
     // We retrieve the category and its products
@@ -22,7 +22,7 @@ export class CategoryListPage implements OnInit {
     });
 
     // We retrieve products from specific category
-    const promise2 = db.collection('categories/'+myId+'/products', ref => ref.orderBy('position')).valueChanges().subscribe((resp) => {
+    const promise2 = db.collection<any>('categories/'+myId+'/products', ref => ref.orderBy('position')).valueChanges().subscribe((resp) => {
       this.products = resp;
     });
   }
