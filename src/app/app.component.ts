@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
   * Function fetching all the categories
   */
   fetchCategories(): Observable<Category[]> {
-    return this.db.collection('categories').snapshotChanges().pipe(map(actions => {
+    return this.db.collection('categories', ref => ref.orderBy('position')).snapshotChanges().pipe(map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         const id = a.payload.doc.id;

@@ -22,7 +22,7 @@ export class CategoryListPage implements OnInit {
     });
 
     // We retrieve products from specific category
-    const promise2 = db.collection('categories/'+myId+'/products').valueChanges().subscribe((resp) => {
+    const promise2 = db.collection('categories/'+myId+'/products', ref => ref.orderBy('position')).valueChanges().subscribe((resp) => {
       this.products = resp;
     });
   }

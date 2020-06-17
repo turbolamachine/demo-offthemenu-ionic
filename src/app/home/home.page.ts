@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
 
   constructor(public db: AngularFirestore, private env: EnvService) {
     // We retrieve products from specific category
-    const promise = db.collection('categories/1rXia7CeevroJzUU4pxK/products').valueChanges().subscribe((resp) => {
+    const promise = db.collection('categories/1rXia7CeevroJzUU4pxK/products', ref => ref.orderBy('position')).valueChanges().subscribe((resp) => {
       this.pizzas = resp;
     });
   }
