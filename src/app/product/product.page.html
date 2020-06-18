@@ -10,4 +10,77 @@
 
 <ion-content>
 
+  <!--Image -->
+  <ion-item lines="none" class="ion-margin-bottom">
+    <ion-img [src]="product.image"></ion-img>
+  </ion-item>
+
+  <!--Title -->
+  <ion-item class="ion-margin-top" lines="none">
+    <ion-label class="ion-margin-top" color="dark">
+      <h1>{{ product.name }}</h1>
+    </ion-label>
+  </ion-item>
+
+  <!-- Category -->
+  <ion-item *ngIf="category" lines="none">
+    <ion-label color="theme">
+      <h5>Category :</h5>
+    </ion-label>
+    <ion-badge (click)="clickOnCategory();" slot="end" color="theme">{{ category.name }}</ion-badge>
+  </ion-item>
+
+  <!-- Description -->
+  <ion-item class="ion-margin-top" lines="none">
+    <ion-text>
+      {{ product.description }}
+    </ion-text>
+  </ion-item>
+
+  <!-- Price -->
+  <ion-item class="ion-margin-top" lines="none">
+    <ion-label class="price" color="dark">
+      ${{ product.price }}
+    </ion-label>
+  </ion-item>
+
+  <!-- Options -->
+  <ion-card class="ion-padding">
+    <ion-card-subtitle color="dark">Options</ion-card-subtitle>
+    <ion-item *ngFor="let opt of tabOptions; let i = index" color="light" lines="none">
+      <ion-checkbox [(ngModel)]="opt.value" slot="start"></ion-checkbox>
+      <ion-label>{{ opt.label }}</ion-label>
+    </ion-item>
+  </ion-card>
+
+  <!-- Extras -->
+  <ion-card  *ngIf="category" class="ion-padding">
+    <ion-card-subtitle color="dark">Extras</ion-card-subtitle>
+    <ion-item *ngFor="let ext of tabExtras" color="light" lines="none">
+      <ion-checkbox slot="start" [(ngModel)]="ext.value"></ion-checkbox>
+      <ion-label>{{ ext.label }} (${{ category.price_extras }})</ion-label>
+    </ion-item>
+  </ion-card>
+
+  <!-- Add to cart -->
+  <ion-item class="ion-padding-top ion-padding-start ion-padding-end" lines="none">
+    <ion-segment>
+      <ion-segment-button (click)="clickOnMinusButton();">
+        <ion-label><ion-icon name="remove"></ion-icon></ion-label>
+      </ion-segment-button>
+      <ion-segment-button disabled>
+        <ion-input [(ngModel)]="quantity"></ion-input>
+      </ion-segment-button>
+      <ion-segment-button (click)="clickOnPlusButton();">
+        <ion-label><ion-icon name="add"></ion-icon></ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-item>
+
+  <ion-item class="ion-text-center" lines="none">
+    <ion-label>
+      <ion-button (click)="clickOnOrderButton();" size="large" color="danger" shape="round">ORDER</ion-button>
+    </ion-label>
+  </ion-item>
+
 </ion-content>

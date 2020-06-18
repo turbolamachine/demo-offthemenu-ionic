@@ -1,0 +1,22 @@
+ion-img {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+ion-segment-button{
+  font-size: 20px;
+
+  ion-input {
+    color: #222 !important;
+  }
+}
+
+ion-segment-button.segment-button-disabled {
+   opacity: 1;
+}

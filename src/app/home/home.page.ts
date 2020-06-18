@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
 
   private pizzas: any[] = [];
 
-  constructor(public prodServ: ProductsService, public modalController: ModalController, public order: OrderService, private env: EnvService) {
+  constructor(public order: OrderService, public prodServ: ProductsService, public modalController: ModalController, private env: EnvService) {
     // We retrieve products from specific category
     let specSubscription = this.prodServ.fetchProductsByCategory("1rXia7CeevroJzUU4pxK").subscribe(products => {
       this.pizzas = products;

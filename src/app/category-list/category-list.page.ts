@@ -33,6 +33,7 @@ export class CategoryListPage implements OnInit {
   ngOnInit() {
   }
 
+
   /*
   * Action when "Order now" buttons are clicked
   */
