@@ -12,10 +12,10 @@ import { ProductPage } from '../product/product.page';
 })
 export class HomePage implements OnInit {
 
-  private specials: any[] = [];
-  private products: any[] = [];
-  private slideOpts: any;
-  private specialsCategoryId: string = "1rXia7CeevroJzUU4pxK";
+  public specials: any[] = [];
+  public products: any[] = [];
+  public slideOpts: any;
+  public specialsCategoryId: string = "1rXia7CeevroJzUU4pxK";
 
   constructor(public order: OrderService, public prodServ: ProductsService, public modalController: ModalController, private env: EnvService) {
     // We retrieve products from specific category
@@ -64,7 +64,7 @@ export class HomePage implements OnInit {
   /*
   * Action when "Cart" button is clicked
   */
-  async clickOnCart(product) {
+  async clickOnCart() {
     return this.order.goToCart();
   }
 

@@ -35,7 +35,7 @@ export class CartPage implements OnInit {
   /*
   * Action when "Checkout" button is clicked
   */
-  clickOnCheckout(itemId){
+  clickOnCheckout(){
     this.modalController.dismiss();
   }
 

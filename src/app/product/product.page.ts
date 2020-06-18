@@ -12,11 +12,11 @@ import { OrderService } from '../services/order.service';
 })
 export class ProductPage implements OnInit {
 
-  private product: any;
-  private category: Category;
-  private quantity: number = 0;
-  private tabOptions: Checkbox[] = [];
-  private tabExtras: Checkbox[] = [];
+  public product: any;
+  public category: Category;
+  public quantity: number = 0;
+  public tabOptions: Checkbox[] = [];
+  public tabExtras: Checkbox[] = [];
 
   constructor(public alertCtrl: AlertController, public order: OrderService, private navCtrl: NavController, public db: AngularFirestore, public modalController: ModalController, private navParams: NavParams) { }
 

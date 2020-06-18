@@ -9,7 +9,7 @@ import { OrderService } from '../services/order.service';
 })
 export class CheckoutPage implements OnInit {
 
-  private mode: number = 0;
+  public mode: number = 0;
 
   constructor(public alertController: AlertController, public loadingController: LoadingController, public order: OrderService) {
   }

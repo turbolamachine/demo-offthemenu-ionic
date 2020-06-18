@@ -14,8 +14,8 @@ import { ProductPage } from '../product/product.page';
 })
 export class CategoryListPage implements OnInit {
 
-  private category: Category;
-  private products: any[];
+  public category: Category;
+  public products: any[];
 
   constructor(public modalController: ModalController, public prodServ: ProductsService, public order: OrderService, public db: AngularFirestore, private activatedRoute: ActivatedRoute) {
     // We retrieve the category and its products
@@ -52,7 +52,7 @@ export class CategoryListPage implements OnInit {
   /*
   * Action when "Cart" button is clicked
   */
-  async clickOnCart(product) {
+  async clickOnCart() {
     return this.order.goToCart();
   }
 
