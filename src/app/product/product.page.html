@@ -79,7 +79,10 @@
 
   <ion-item class="ion-text-center" lines="none">
     <ion-label>
-      <ion-button (click)="clickOnOrderButton();" size="large" color="danger" shape="round">ORDER</ion-button>
+      <ion-button (click)="clickOnOrderButton();" size="large" color="danger" shape="round">
+        <ion-icon slot="start" name="basket"></ion-icon>
+        <ion-label>ORDER</ion-label>
+      </ion-button>
     </ion-label>
   </ion-item>
 

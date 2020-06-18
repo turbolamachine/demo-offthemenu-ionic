@@ -131,6 +131,7 @@
       <ion-item color="theme" class="ion-text-center" lines="none">
         <ion-label>
           <ion-button (click)="clickOnOrderNow(item)" fill="outline" color="dark">Order Now</ion-button>
+          <ion-button routerDirection="root" [routerLink]="['/category-list', item.categorie_id]" fill="outline" color="dark">See more</ion-button>
         </ion-label>
       </ion-item>
     </ion-card>

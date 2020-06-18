@@ -28,7 +28,6 @@ export class HomePage implements OnInit {
       for(let category of categories) {
         if(category.id != this.specialsCategoryId) { // we don't want duplicates
           let prodSubscription = this.prodServ.fetchFirstProductByCategory(category.id).subscribe(products => {
-            console.log(products);
             this.products.push(products[0]);
           });
         }
