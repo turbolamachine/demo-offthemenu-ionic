@@ -61,7 +61,10 @@
   <!-- STEP 2 : HOME DELIVERY -->
   <ion-list *ngIf="mode == 1">
     <ion-item-divider class="ion-margin-bottom" color="theme">
-      <ion-button (click)="changeMode(0);" slot="start" color="theme"><ion-icon name="chevron-back"></ion-icon></ion-button>
+      <ion-button (click)="changeMode(0);" slot="start" color="theme-contrast">
+        <ion-icon name="chevron-back" slot="start"></ion-icon>
+        <ion-label>Back</ion-label>
+      </ion-button>
       <ion-label>
         Home delivery
       </ion-label>
@@ -107,11 +110,28 @@
   <!-- STEP 2 : TAKING AWAY -->
   <ion-list *ngIf="mode == 2">
     <ion-item-divider class="ion-margin-bottom" color="theme">
-      <ion-button (click)="changeMode(0);" slot="start" color="theme"><ion-icon name="chevron-back"></ion-icon></ion-button>
+      <ion-button (click)="changeMode(0);" slot="start" color="theme-contrast">
+        <ion-icon name="chevron-back" slot="start"></ion-icon>
+        <ion-label>Back</ion-label>
+      </ion-button>
       <ion-label>
         Take away
       </ion-label>
     </ion-item-divider>
+    <ion-item class="ion-text-center ion-no-margin" lines="none">
+      <ion-label><h2>Off The Menu Restaurant</h2></ion-label>
+    </ion-item>
+    <ion-item class="ion-text-center" lines="none">
+      <ion-label class="ion-text-wrap ion-no-margin">
+        1660-1670 Fulton St<br />
+        Brooklyn, NY 11213, United States
+      </ion-label>
+    </ion-item>
+    <ion-item class="ion-text-center ion-margin-top" lines="none">
+      <ion-text color="medium" class="ion-text-wrap">
+        You can come in about 25 minutes after submitting your order.
+      </ion-text>
+    </ion-item>
     <ion-item class="ion-padding-start ion-padding-end" lines="none">
       <ion-label position="stacked">Full Name</ion-label>
       <ion-input></ion-input>
@@ -134,11 +154,23 @@
   <!-- STEP 2 : DINING IN -->
   <ion-list *ngIf="mode == 3">
     <ion-item-divider class="ion-margin-bottom" color="theme">
-      <ion-button (click)="changeMode(0);" slot="start" color="theme"><ion-icon name="chevron-back"></ion-icon></ion-button>
+      <ion-button (click)="changeMode(0);" slot="start" color="theme-contrast">
+        <ion-icon name="chevron-back" slot="start"></ion-icon>
+        <ion-label>Back</ion-label>
+      </ion-button>
       <ion-label>
         Dine in
       </ion-label>
     </ion-item-divider>
+    <ion-item class="ion-text-center ion-no-margin" lines="none">
+      <ion-label><h2>Off The Menu Restaurant</h2></ion-label>
+    </ion-item>
+    <ion-item class="ion-text-center" lines="none">
+      <ion-label class="ion-text-wrap ion-no-margin">
+        1660-1670 Fulton St<br />
+        Brooklyn, NY 11213, United States
+      </ion-label>
+    </ion-item>
     <ion-item class="ion-padding-start ion-padding-end" lines="none">
       <ion-label position="stacked">Full Name</ion-label>
       <ion-input></ion-input>

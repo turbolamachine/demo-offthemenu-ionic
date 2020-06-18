@@ -1,6 +1,15 @@
 ion-slides {
   height: 100%;
-  background:#f7b844;
+  background: url('/assets/bgSlides.png');
+
+  h1 {
+    font-size: 24px !important;
+  }
+
+  ion-img {
+    width: 80%;
+    margin:auto;
+  }
 }
 
 ion-card {
@@ -16,4 +25,18 @@ ion-card {
 
 .price {
   font-weight: 800;
+}
+
+#other_products {
+  background: var(--ion-color-theme);
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  ion-card {
+    background: rgba(255,255,255,0);
+  }
+
+  ion-text {
+    color: var(--ion-color-light);
+  }
 }

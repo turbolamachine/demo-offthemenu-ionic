@@ -12,13 +12,35 @@ import { ProductPage } from '../product/product.page';
 })
 export class HomePage implements OnInit {
 
-  private pizzas: any[] = [];
+  private specials: any[] = [];
+  private products: any[] = [];
+  private slideOpts: any;
+  private specialsCategoryId: string = "1rXia7CeevroJzUU4pxK";
 
   constructor(public order: OrderService, public prodServ: ProductsService, public modalController: ModalController, private env: EnvService) {
     // We retrieve products from specific category
-    let specSubscription = this.prodServ.fetchProductsByCategory("1rXia7CeevroJzUU4pxK").subscribe(products => {
-      this.pizzas = products;
+    let specSubscription = this.prodServ.fetchProductsByCategory(this.specialsCategoryId).subscribe(products => {
+      this.specials = products;
     });
+
+    // We retrieve the other products from other categories
+    let catSubscription = this.prodServ.fetchAllCategories().subscribe(categories => {
+      for(let category of categories) {
+        if(category.id != this.specialsCategoryId) { // we don't want duplicates
+          let prodSubscription = this.prodServ.fetchFirstProductByCategory(category.id).subscribe(products => {
+            console.log(products);
+            this.products.push(products[0]);
+          });
+        }
+      }
+    });
+
+    // options for slides
+    this.slideOpts = {
+     initialSlide: 0,
+     slidesPerView: 1,
+     autoplay:true
+    };
   }
 
   ngOnInit() {

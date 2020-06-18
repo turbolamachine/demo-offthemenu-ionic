@@ -58,7 +58,7 @@ export class CheckoutPage implements OnInit {
   async finish(){
     /** !!! **
     ** CUSTOM CODE MUST BE HERE TO DEAL WITH THE ORDER (Form validation, Payment, etc...)
-    ** Lines from 37 to 44 can be deleted
+    ** Lines from 64 to 71 can be deleted
     ** !!! **/
 
     const loading = await this.loadingController.create({

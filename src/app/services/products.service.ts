@@ -37,4 +37,18 @@ export class ProductsService {
       });
     }));
   }
+
+  /*
+  * Get all the products of each category with position = 1
+  */
+  fetchFirstProductByCategory(catId): Observable<any[]> {
+    return this.db.collection('categories/'+catId+'/products', ref => ref.where('position', '<=', 1).orderBy('position').limit(1)).snapshotChanges().pipe(map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        const categorie_id = catId;
+        return { categorie_id, id, ...(data as {}) } ;
+      });
+    }));
+  }
 }

@@ -22,15 +22,42 @@
 <ion-content [fullscreen]="true">
 
   <!-- SLIDESHOW -->
-  <ion-slides pager="true">
+  <ion-slides pager="true" [options]="slideOpts">
     <ion-slide>
-      <h1>NEW</h1>
+      <div class="ion-text-center">
+        <ion-label color="dark">
+          <h1>NEW</h1>
+        </ion-label>
+        <ion-label color="danger">
+          <h1>Strawberry Banana Split</h1>
+        </ion-label>
+        <ion-button color="theme" shape="round" class="ion-margin-top ion-margin-bottom">See More</ion-button>
+        <ion-img src="assets/dessert1.png"></ion-img>
+      </div>
     </ion-slide>
     <ion-slide>
-      <h1>ON SALE</h1>
+      <div class="ion-text-center">
+        <ion-label color="dark">
+          <h1>ON SALE</h1>
+        </ion-label>
+        <ion-label color="danger">
+          <h1>Famous Bacon Burger</h1>
+        </ion-label>
+        <ion-button color="theme" shape="round" class="ion-margin-top ion-margin-bottom">Only $5</ion-button>
+        <ion-img src="assets/burger1.png"></ion-img>
+      </div>
     </ion-slide>
     <ion-slide>
-      <h1>STILL AVAILABLE</h1>
+      <div class="ion-text-center">
+        <ion-label color="dark">
+          <h1>STILL AVAILABLE</h1>
+        </ion-label>
+        <ion-label color="danger">
+          <h1>Pepperoni Pizza</h1>
+        </ion-label>
+        <ion-button color="theme" shape="round" class="ion-margin-top ion-margin-bottom">See More</ion-button>
+        <ion-img src="assets/pizza1.png"></ion-img>
+      </div>
     </ion-slide>
   </ion-slides>
   <!-- END Slideshow -->
@@ -54,7 +81,7 @@
   <!-- END Text Content -->
 
   <!-- PRODUCTS LIST FROM SPECIFIC CATEGORY -->
-  <ion-card  *ngFor="let item of pizzas" class="ion-text-center ion-padding-top">
+  <ion-card *ngFor="let item of specials" class="ion-text-center ion-padding-top">
     <ion-item lines="none">
       <ion-button slot="start" size="medium" color="theme" class="price">${{ item.price }}</ion-button>
     </ion-item>
@@ -72,6 +99,42 @@
     </ion-item>
   </ion-card>
   <!-- END Products List -->
+
+
+
+  <div id="other_products">
+
+    <!-- SOME TEXT CONTENT -->
+    <ion-item color="theme" class="ion-margin-top ion-text-center ion-margin-top" lines="none">
+      <ion-label color="dark">
+        <h1>Our Best-Sellers</h1>
+      </ion-label>
+    </ion-item>
+    <ion-item color="theme" class="ion-text-center" lines="none">
+      <ion-label color="medium" class="ion-text-wrap">
+        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+      </ion-label>
+    </ion-item>
+    <!-- END Text Content -->
+
+    <ion-card *ngFor="let item of products" class="ion-text-center ion-padding-top">
+      <ion-item color="theme" lines="none">
+        <ion-button slot="start" size="medium" color="dark" class="price">${{ item.price }}</ion-button>
+      </ion-item>
+      <img [src]="item.image" />
+      <h4 color="dark">{{ item.name }}</h4>
+      <ion-item color="theme" class="ion-padding-start ion-padding-end ion-text-center" lines="none">
+        <ion-text>
+          {{ item.description }}
+        </ion-text>
+      </ion-item>
+      <ion-item color="theme" class="ion-text-center" lines="none">
+        <ion-label>
+          <ion-button (click)="clickOnOrderNow(item)" fill="outline" color="dark">Order Now</ion-button>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
 
   <!-- CART BUTTON -->
   <ion-fab slot="fixed" horizontal="end" vertical="bottom">

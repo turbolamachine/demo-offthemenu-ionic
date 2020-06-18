@@ -106,7 +106,7 @@ export class OrderService {
 
     // toast popup
     const toast = await this.toastController.create({
-      message: 'Your order is completed. Thank you !',
+      message: 'Your order is complete. Thank you !',
       duration: 3000
     });
     toast.present();
