@@ -52,12 +52,31 @@ export class OrderService {
     while(i <= quantity) {
       this.cart.items.push(item);
 
-      // We increment the cart total price
+      // We increment the order total price
       this.cart.totalPrice += item.price;
 
       // increment for loop
       i++;
     }
+  }
+
+
+  /*
+  * Remove one product from cart
+  */
+  removeFromCart(uniqueId) {
+
+    // We loop on all items
+    for(let key in this.cart.items) {
+      let item = this.cart.items[key];
+
+      // If the id is equal, we remove item from tab
+      if(item.id == uniqueId) {
+        this.cart.items.splice(parseFloat(key), 1);
+        break;
+      }
+    }
+
   }
 
 

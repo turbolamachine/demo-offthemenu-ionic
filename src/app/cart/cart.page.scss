@@ -13,3 +13,11 @@
   font-weight: 600;
   font-size: 20px;
 }
+
+.option, .extra {
+  display:inline-block;
+  margin: 1px 12px 1px 0;
+  font-size:14px;
+  font-weight: 400;
+  color: var(--ion-color-medium);
+}

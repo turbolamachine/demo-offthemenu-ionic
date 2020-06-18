@@ -23,4 +23,12 @@ export class CartPage implements OnInit {
     this.modalController.dismiss();
   }
 
+
+  /*
+  * Action when "Remove" buttons are clicked
+  */
+  clickOnTrash(itemId){
+    this.order.removeFromCart(itemId);
+  }
+
 }

@@ -17,10 +17,19 @@
       <img [src]="item.image">
     </ion-avatar>
     <ion-label>
-      {{ item.productName }}<br />
+      {{ item.productName }}
+      <br />
+      <ng-container *ngFor="let opt of item.options">
+        <div *ngIf="opt.value" class="option">{{ opt.label }}</div>
+      </ng-container>
+      <br />
+      <ng-container *ngFor="let ext of item.extras">
+        <div *ngIf="ext.value" class="extra">{{ ext.label }}</div>
+      </ng-container>
+      <br />
       <span class="itemPrice">${{ item.price }}</span>
     </ion-label>
-    <ion-button slot="end" color="dark" fill="clear">
+    <ion-button (click)="clickOnTrash(item.id);" slot="end" color="dark" fill="clear">
       <ion-icon name="trash-outline"></ion-icon>
     </ion-button>
   </ion-item>
