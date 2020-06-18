@@ -1,0 +1,67 @@
+<!-- HEADER -->
+<ion-header class="ion-no-border" color="dark" [translucent]="true">
+  <ion-toolbar>
+    <div slot="start" id="banner"></div>
+    <ion-buttons slot="start" class="ion-margin-top">
+      <ion-menu-button>
+        <ion-button class="round" fill="solid" color="danger">
+          <ion-icon color="light" slot="icon-only" name="menu-outline"></ion-icon>
+        </ion-button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-img alt="logo" id="header_logo" src="assets/logo_off_the_menu.png"></ion-img>
+    <ion-buttons slot="end" class="ion-margin-top">
+      <ion-button class="round" fill="solid" color="success">
+        <ion-icon color="light" slot="icon-only" name="call-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- End Header -->
+
+<ion-content *ngIf="order.cart.items.length > 0" [fullscreen]="true">
+  <ion-list>
+    <ion-item class="ion-text-center ion-margin-top bigTitle" lines="none">
+      <ion-label color="dark">
+        <h1 id="title">CHECKING OUT</h1>
+      </ion-label>
+    </ion-item>
+    <ion-item-divider class="ion-margin-top ion-margin-bottom" color="theme">
+      <ion-label>
+        Choose your delivery method
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-icon color="medium" slot="start" name="home-sharp"></ion-icon>
+      <ion-label>
+        Home delivery
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon color="medium" slot="start" name="basket-sharp"></ion-icon>
+      <ion-label>
+        Take away
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon color="medium" slot="start" name="restaurant-sharp"></ion-icon>
+      <ion-label>
+        Dine in
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- CONTENT IF CART IS EMPTY -->
+<ion-content *ngIf="order.cart.items.length == 0" [fullscreen]="true">
+  <ion-item  class="ion-text-center" lines="none" disabled>
+    <ion-label color="medium" class="icon-empty">
+      <ion-icon name="basket-outline"></ion-icon>
+    </ion-label>
+  </ion-item>
+  <ion-item *ngIf="order.cart.items.length == 0" class="ion-text-center" lines="none">
+    <ion-label color="medium">
+      <h3>Your order is empty</h3>
+    </ion-label>
+  </ion-item>
+</ion-content>

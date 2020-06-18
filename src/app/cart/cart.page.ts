@@ -31,4 +31,12 @@ export class CartPage implements OnInit {
     this.order.removeFromCart(itemId);
   }
 
+
+  /*
+  * Action when "Checkout" button is clicked
+  */
+  clickOnCheckout(itemId){
+    this.modalController.dismiss();
+  }
+
 }
