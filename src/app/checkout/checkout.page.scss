@@ -3,5 +3,15 @@
 }
 
 .bigTitle {
-  background: #f1f1f1;
+  --background: #f1f1f1;
+
+  ion-label {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+ion-input, ion-textarea {
+  --background: #f6f6f6;
+  border-radius: 10px;
 }

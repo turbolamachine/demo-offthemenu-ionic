@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from 'src/app/models/cart-item';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController, ToastController } from '@ionic/angular';
 import { CartPage } from '../cart/cart.page';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class OrderService {
     items: CartItem[]
   };
 
-  constructor(public modalController: ModalController) {
+  constructor(private toastController: ToastController, private navCtrl: NavController, public modalController: ModalController) {
     // Cart is empty when app starts
     this.cart = {
       totalPrice: 0,
@@ -88,6 +88,29 @@ export class OrderService {
       component: CartPage
     });
     return await modal.present();
+  }
+
+
+  /*
+  * Has to be called after order is completed and everything was OK
+  */
+  async orderIsFinished() {
+    // cart is emptied
+    this.cart = {
+      totalPrice: 0,
+      items: []
+    };
+
+    // redirect to home
+    this.navCtrl.navigateRoot('/home');
+
+    // toast popup
+    const toast = await this.toastController.create({
+      message: 'Your order is completed. Thank you !',
+      duration: 3000
+    });
+    toast.present();
+
   }
 
 }

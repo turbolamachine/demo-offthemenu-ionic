@@ -1,5 +1,5 @@
 <!-- HEADER -->
-<ion-header class="ion-no-border" color="dark" [translucent]="true">
+<ion-header class="ion-no-border" color="dark" [translucent]="false">
   <ion-toolbar>
     <div slot="start" id="banner"></div>
     <ion-buttons slot="start" class="ion-margin-top">
@@ -19,37 +19,144 @@
 </ion-header>
 <!-- End Header -->
 
-<ion-content *ngIf="order.cart.items.length > 0" [fullscreen]="true">
+<ion-content *ngIf="order.cart.items.length > 0">
+
   <ion-list>
     <ion-item class="ion-text-center ion-margin-top bigTitle" lines="none">
       <ion-label color="dark">
-        <h1 id="title">CHECKING OUT</h1>
+        <h1 id="title">CHECKOUT</h1>
       </ion-label>
     </ion-item>
-    <ion-item-divider class="ion-margin-top ion-margin-bottom" color="theme">
+  </ion-list>
+
+  <!-- STEP 1 : DELIVERY CHOICE -->
+  <ion-list *ngIf="mode <= 0">
+    <ion-item-divider class="ion-margin-bottom" color="theme">
+      <ion-button slot="start" color="theme"><ion-icon name="fast-food"></ion-icon></ion-button>
       <ion-label>
         Choose your delivery method
       </ion-label>
     </ion-item-divider>
-    <ion-item>
+    <ion-item (click)="changeMode(1);">
       <ion-icon color="medium" slot="start" name="home-sharp"></ion-icon>
       <ion-label>
         Home delivery
       </ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="changeMode(2);">
       <ion-icon color="medium" slot="start" name="basket-sharp"></ion-icon>
       <ion-label>
         Take away
       </ion-label>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="changeMode(3);">
       <ion-icon color="medium" slot="start" name="restaurant-sharp"></ion-icon>
       <ion-label>
         Dine in
       </ion-label>
     </ion-item>
   </ion-list>
+
+
+  <!-- STEP 2 : HOME DELIVERY -->
+  <ion-list *ngIf="mode == 1">
+    <ion-item-divider class="ion-margin-bottom" color="theme">
+      <ion-button (click)="changeMode(0);" slot="start" color="theme"><ion-icon name="chevron-back"></ion-icon></ion-button>
+      <ion-label>
+        Home delivery
+      </ion-label>
+    </ion-item-divider>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">First name</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Last name</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Phone</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Address</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Zip</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">City</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Country</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Comments</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <!-- STEP 2 : TAKING AWAY -->
+  <ion-list *ngIf="mode == 2">
+    <ion-item-divider class="ion-margin-bottom" color="theme">
+      <ion-button (click)="changeMode(0);" slot="start" color="theme"><ion-icon name="chevron-back"></ion-icon></ion-button>
+      <ion-label>
+        Take away
+      </ion-label>
+    </ion-item-divider>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Full Name</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Phone</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Comments</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+
+  <!-- STEP 2 : DINING IN -->
+  <ion-list *ngIf="mode == 3">
+    <ion-item-divider class="ion-margin-bottom" color="theme">
+      <ion-button (click)="changeMode(0);" slot="start" color="theme"><ion-icon name="chevron-back"></ion-icon></ion-button>
+      <ion-label>
+        Dine in
+      </ion-label>
+    </ion-item-divider>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Full Name</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Phone</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item class="ion-padding-start ion-padding-end" lines="none">
+      <ion-label position="stacked">Comments</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
 
 <!-- CONTENT IF CART IS EMPTY -->
@@ -65,3 +172,20 @@
     </ion-label>
   </ion-item>
 </ion-content>
+
+
+<!-- FOOTER -->
+<ion-footer *ngIf="mode > 0" class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-right">
+          <ion-button (click)="clickOnConfirm();" color="theme" fill="solid" shape="round">
+            <ion-icon name="checkmark" slot="start"></ion-icon>
+            <ion-label>Confirm</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
