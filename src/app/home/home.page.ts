@@ -39,4 +39,12 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
+
+  /*
+  * Action when "Cart" button is clicked
+  */
+  async clickOnCart(product) {
+    return this.order.goToCart();
+  }
+
 }

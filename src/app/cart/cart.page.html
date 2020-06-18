@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="medium" (click)="clickOnClose()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- CONTENT IF CART IS NOT EMPTY -->
+<ion-content *ngIf="order.cart.items.length > 0">
+
+  <!-- LIST OF CART ITEMS -->
+  <ion-item *ngFor="let item of order.cart.items">
+    <ion-avatar slot="start">
+      <img [src]="item.image">
+    </ion-avatar>
+    <ion-label>
+      {{ item.productName }}<br />
+      <span class="itemPrice">${{ item.price }}</span>
+    </ion-label>
+    <ion-button slot="end" color="dark" fill="clear">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- END List Cart Items -->
+
+</ion-content>
+
+<!-- CONTENT IF CART IS EMPTY -->
+<ion-content *ngIf="order.cart.items.length == 0">
+
+  <ion-item  class="ion-text-center" lines="none" disabled>
+    <ion-label color="medium" class="icon-empty">
+      <ion-icon name="basket-outline"></ion-icon>
+    </ion-label>
+  </ion-item>
+  <ion-item *ngIf="order.cart.items.length == 0" class="ion-text-center" lines="none">
+    <ion-label color="medium">
+      <h3>Your order is empty</h3>
+    </ion-label>
+  </ion-item>
+
+</ion-content>
+
+<!-- FOOTER -->
+<ion-footer *ngIf="order.cart.items.length > 0" class="ion-no-border">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-label color="medium">
+          Subtotal :<br />
+          <span class="totalPrice">${{ order.cart.totalPrice }}</span>
+        </ion-label>
+      </ion-col>
+      <ion-col class="ion-text-right">
+        <ion-button color="danger" fill="solid" shape="round">
+          <ion-icon name="card" slot="start"></ion-icon>
+          <ion-label>CHECKOUT</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

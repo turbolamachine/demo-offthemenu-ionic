@@ -75,7 +75,7 @@
 
   <!-- CART BUTTON -->
   <ion-fab slot="fixed" horizontal="end" vertical="bottom">
-    <ion-fab-button color="light">
+    <ion-fab-button (click)="clickOnCart();" color="light">
       <ion-icon name="basket-outline"></ion-icon>
       <ion-badge [color]="order.cart.items.length == 0 ? 'dark' : 'success'">{{ order.cart.items.length }}</ion-badge>
     </ion-fab-button>

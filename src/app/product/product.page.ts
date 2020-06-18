@@ -87,7 +87,7 @@ export class ProductPage implements OnInit {
   */
   clickOnOrderButton(){
     if(this.quantity > 0) {
-      this.order.addToCart(this.product.name, this.product.id, this.product.price, this.category.price_extras, this.quantity, this.tabOptions, this.tabExtras);
+      this.order.addToCart(this.product.name, this.product.id, this.product.image, this.product.price, this.category.price_extras, this.quantity, this.tabOptions, this.tabExtras);
       this.presentAlertOK();
     }
     else {
@@ -134,6 +134,7 @@ export class ProductPage implements OnInit {
           cssClass: 'success',
           handler: () => {
             this.modalController.dismiss();
+            this.order.goToCart();
           }
         }
       ]
